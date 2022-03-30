@@ -1,0 +1,22 @@
+.header {
+  background-color: azure;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-btn {
+  padding: 20px;
+  height: 30px;
+  width: 100px;
+  background-color: aqua;
+}
+
+.todos-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

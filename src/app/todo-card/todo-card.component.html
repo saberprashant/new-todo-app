@@ -1,0 +1,13 @@
+<div class="todo-container">
+  <h3>{{title}}</h3>
+  <p>{{description}}</p>
+
+  <div class="actions" *ngIf="!completed; else completedTemp">
+    <button (click)="updateTodo('markComplete')">Com</button>
+    <button (click)="updateTodo('edit')">E</button>
+    <button (click)="updateTodo('delete')">D</button>
+  </div>
+  <ng-template #completedTemp>
+    <p class="completed">Todo completed!</p>
+  </ng-template>
+</div>

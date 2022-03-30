@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { 
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2 {
+  margin: 0 !important;
+}
+
+.mx-container {
+  padding: 0 100px;
+}

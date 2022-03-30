@@ -1,0 +1,15 @@
+<div class="todo-form">
+  <div>
+    <label for="title">Title: </label>
+    <input id="title" type="text" [formControl]="title">
+  </div>
+
+  <div>
+    <label for="description">Description: </label>
+    <input id="description" type="text" [formControl]="description">
+  </div>
+
+  <button (click)="addTodo()">
+    Submit
+  </button>
+</div>

@@ -1,0 +1,14 @@
+<div class="header mx-container">
+    <h1>Welcome to {{title}}</h1>
+    <button (click)="addTodo()" class="add-btn">Add todo</button>
+</div>
+
+<div class="todos-container mx-container">
+  <div class="todo" *ngFor="let item of todos; let i=index">
+    <app-todo-card
+      [title]="item.title"
+      [description]="item.description"
+      (update)="updateTodo($event, i)"
+    ></app-todo-card>
+  </div>
+</div>
