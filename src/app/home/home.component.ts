@@ -19,17 +19,23 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addTodo() {
-    //open a new todo form
+  addTodo(todo: any = {}, index: number = -1) {
+    //open a new todo form or edit existing todo
 
     const dialogRef = this.dialog.open(AddTodoComponent, {
       width: '500px',
-      autoFocus: true
+      autoFocus: true,
+      data: { todo, index }
     })
 
     dialogRef.afterClosed().subscribe(result => {
       if(result?.todo) {
-        this.todos.push(result.todo);
+        console.log(result);
+        if(result.index > -1) {
+          this.todos[result.index] = result.todo;
+        } else {
+          this.todos.push(result.todo);
+        }
       }
     })
   }
@@ -46,24 +52,20 @@ export class HomeComponent implements OnInit {
 
 
   deleteTodo(index: number) {
-    console.log(index, this.todos)
-    if(index) {
-      this.todos = this.todos.filter((todo, i) => {
-        if(i !== index) {
-          return true;
-        } else {
-          return false;
-        }
-      });
+    if(index !== null && index !== undefined) {
+      this.todos = this.todos.filter((todo, i) => i !== index);
     }
   }
 
   editTodo(index: number) {
     //open the todo form
+    this.addTodo(this.todos[index], index);
   }
 
   markComplete(index: number) {
-    this.todos[index].completed = true;
+    if(index !== null && index !== undefined) {
+      this.todos[index].completed = true;
+    }
   }
 }
 

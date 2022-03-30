@@ -4,11 +4,17 @@
 </div>
 
 <div class="todos-container mx-container">
-  <div class="todo" *ngFor="let item of todos; let i=index">
-    <app-todo-card
-      [title]="item.title"
-      [description]="item.description"
-      (update)="updateTodo($event, i)"
-    ></app-todo-card>
-  </div>
+  <ng-container *ngIf="todos.length > 0; else noTodos">
+    <div class="todo" *ngFor="let item of todos; let i=index">
+      <app-todo-card
+        [title]="item.title"
+        [description]="item.description"
+        [completed]="item.completed"
+        (update)="updateTodo($event, i)"
+      ></app-todo-card>
+    </div>
+  </ng-container>
+  <ng-template #noTodos>
+    No todos present!
+  </ng-template>
 </div>
